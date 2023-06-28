@@ -77,10 +77,7 @@ class Responsable{
 		if($base->Iniciar()){
 			if($base->Ejecutar($consulta)){
 				if($row2=$base->Registro()){
-				    $this->setRnumeroempleado($rnumeroempleado);
-					$this->setRnumerolicencia($row2['rnumerolicencia']);
-					$this->setRnombre($row2['rnombre']);
-                    $this->setRapellido($row2['rapellido']);
+					$this->cargar($rnumeroempleado, $row2['rnumerolicencia'], $row2['rnombre'], $row2['rapellido']);
 					$resp= true;
 				}
 		 	} else {

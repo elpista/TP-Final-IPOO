@@ -43,8 +43,8 @@ class Empresa {
 	}
 
     public function __toString(){
-        return "\n Nombre de la empresa: " . $this->getEnombre() . "\n Direccion de la empresa: " 
-        . $this->getEdireccion() . "\n";
+        return "\nID de la empresa: " . $this->getIdempresa() . "\n Nombre de la empresa: " . $this->getEnombre() . 
+		"\n Direccion de la empresa: " . $this->getEdireccion() . "\n";
     }
 
     public function cargar($idempresa, $enombre, $edireccion){
@@ -65,9 +65,7 @@ class Empresa {
 		if($base->Iniciar()){
 			if($base->Ejecutar($consulta)){
 				if($row2=$base->Registro()){
-				    $this->setIdempresa($idempresa);
-					$this->setEnombre($row2['enombre']);
-					$this->setEdireccion($row2['edireccion']);
+					$this->cargar($idempresa, $row2['enombre'], $row2['edireccion']);
 					$resp= true;
 				}
 		 	} else {

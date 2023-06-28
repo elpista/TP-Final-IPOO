@@ -192,7 +192,9 @@ function listarEmpresas(){
         }
         menuInicial();
     } else{
-        echo "Se ha producido un error:\n" . $empresa->getmensajeoperacion();
+        if($empresa->getmensajeoperacion() == ""){
+            echo "No hay empresas cargadas";
+        } else echo "Se ha producido un error:\n" . $empresa->getmensajeoperacion();
     }
     
 }
@@ -358,7 +360,9 @@ function listarViajes(){
         }
         menuInicial();
     } else{
-        echo "Ha ocurrido un error:\n" . $viaje->getmensajeoperacion();
+        if($viaje->getmensajeoperacion() == ""){
+            echo "No hay viajes cargados";
+        } else echo "Ha ocurrido un error:\n" . $viaje->getmensajeoperacion();
     }
     
 }
@@ -474,7 +478,9 @@ function listarResponsables(){
         }
         menuInicial();
     } else{
-        echo "Ha ocurrido un error:\n" . $responsable->getmensajeoperacion();
+        if($responsable->getmensajeoperacion() == ""){
+            echo "No hay responsables cargados";
+        } else echo "Ha ocurrido un error:\n" . $responsable->getmensajeoperacion();
     }
     
 }
@@ -608,7 +614,9 @@ function listarPasajeros(){
         }
         menuInicial();
     } else{
-        echo "Ha ocurrido un error:\n" . $pasajero->getmensajeoperacion();
+        if($viaje->getmensajeoperacion() == ""){
+            echo "No hay pasajeros cargados";
+        } else echo "Ha ocurrido un error:\n" . $pasajero->getmensajeoperacion();
     }
     
 }

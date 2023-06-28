@@ -113,14 +113,11 @@ class Viaje{
 
                     $empresaBusqueda = new Empresa();
                     $empresaBusqueda->buscar($row2["idempresa"]);
-                    
-				    $this->setVdestino($row2['vdestino']);
-				    $this->setIdviaje($idviaje);
-					$this->setVcantmaxpasajeros($row2['vcantmaxpasajeros']);
-					$this->setEmpresa($empresaBusqueda);
-					$this->setResponsable($responsableBusqueda);
-                    $this->setVimporte($row2['vimporte']);
+
+                    $this->cargar($idviaje, $row2['vdestino'], $row2['vcantmaxpasajeros'], $empresaBusqueda, 
+                    $responsableBusqueda, $row2['vimporte']);
 					$resp= true;
+                    //$idviaje, $vdestino, $vcantmaxpasajeros, $empresa, $responsable, $vimporte
 				}
 		 	} else {
 		 		$this->setmensajeoperacion($base->getError());
@@ -164,7 +161,7 @@ class Viaje{
                     $responsable, $vimporte);
                     //$idviaje, $vdestino, $vcantmaxpasajeros, $empresa, $responsable, $vimporte
 					array_push($arregloViaje,$viaje);
-	
+                    //usar buscar
 				}
 				
 			

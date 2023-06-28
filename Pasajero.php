@@ -88,11 +88,7 @@ class Pasajero{
                     $viajeBusqueda = new Viaje();
                     $viajeBusqueda->buscar($row2["idviaje"]);
                     
-                    $this->setPdocumento($pdocumento);
-				    $this->setPnombre($row2['pnombre']);
-					$this->setPapellido($row2['papellido']);
-                    $this->setPtelefono($row2['ptelefono']);
-                    $this->setViaje($viajeBusqueda);
+                    $this->cargar($pdocumento, $row2['pnombre'], $row2['papellido'], $row2['ptelefono'], $viajeBusqueda);
 					$resp= true;
 				}
 		 	} else {
