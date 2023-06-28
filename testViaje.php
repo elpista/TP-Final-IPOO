@@ -614,7 +614,7 @@ function listarPasajeros(){
         }
         menuInicial();
     } else{
-        if($viaje->getmensajeoperacion() == ""){
+        if($pasajero->getmensajeoperacion() == ""){
             echo "No hay pasajeros cargados";
         } else echo "Ha ocurrido un error:\n" . $pasajero->getmensajeoperacion();
     }
