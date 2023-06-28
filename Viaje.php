@@ -245,8 +245,13 @@ class Viaje{
      * @return boolean
      */
     public function eliminar(){
-		$base=new BaseDatos();
+        $base=new BaseDatos();
 		$resp=false;
+        $pasajero = new Pasajero();
+        $colPasajerosDeViaje = $pasajero->listar("idviaje = " . $this->getIdviaje());
+        for($i = 0; $i < count($colPasajerosDeViaje); $i++){
+            $colPasajerosDeViaje[$i]->eliminar();
+        }
 		if($base->Iniciar()){
 				$consultaBorra="DELETE FROM viaje WHERE idviaje="
                 .$this->getIdviaje();

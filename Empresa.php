@@ -179,6 +179,11 @@ class Empresa {
     public function eliminar(){
 		$base=new BaseDatos();
 		$resp=false;
+		$viaje = new Viaje();
+        $colViajesDeEmpresa = $viaje->listar("idempresa = " . $this->getIdempresa());
+        for($i = 0; $i < count($colViajesDeEmpresa); $i++){
+            $colViajesDeEmpresa[$i]->eliminar();
+        }
 		if($base->Iniciar()){
 				$consultaBorra="DELETE FROM empresa WHERE idempresa="
                 .$this->getIdempresa();
